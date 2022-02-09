@@ -110,6 +110,21 @@ db.people.find({})
 // Find the names of the next 5 oldest cats after question 14.
 
 
+// Question 16
+// Make everyone older.
+// Remember to make the cats older too.
+
+
+// Question 17
+// Find everyone who has the word 'Pirate' in their name,
+// then award each of them a parrot.
+
+
+// Question 18
+// It's time for a cull. Delete all the people aged greater than 50.
+
+
+
 db.people.drop()
 
 

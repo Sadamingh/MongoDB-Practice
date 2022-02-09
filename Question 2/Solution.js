@@ -155,6 +155,38 @@ db.people.find(
     {"cat.name" : 1, "_id" : 0}
 ).sort({"cat.age" : -1}).skip(5).limit(5)
 
+// Question 16
+// Make everyone older.
+// Remember to make the cats older too.
+db.people.updateMany(
+    {},
+    {$inc : {"age" : 1, "cat.age" : 1}}
+)
+db.people.find({})
+
+// Question 17
+// Find everyone who has the word 'Pirate' in their name,
+// then award each of them a parrot.
+db.people.updateMany(
+    {"name" : {$regex : "\w*Pirate\w*",
+               $options : "im"}},
+    {$set : {"parrot" : 1}}
+)
+db.people.find(
+    {"name" : {$regex : "\w*Pirate\w*",
+               $options : "im"}}
+)
+
+// Question 18
+// It's time for a cull. Delete all the people aged greater than 50.
+db.people.deleteMany(
+    {"age" : {$gt : 50}}
+)
+db.people.find(
+    {"age" : {$gt : 50}}
+)
+
+
 db.people.drop()
 
 
