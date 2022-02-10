@@ -107,7 +107,7 @@ mongoimport
 * What option should we assign when we want to import data to a database?
 
 ```
---database
+--db
 ```
 
 * What option should we assign when we want to import data to a collection?
