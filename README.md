@@ -401,6 +401,12 @@ availability
 consistency
 ```
 
+* What are the two of CAP Mogodb supports?
+
+```
+consistency, partition tolerance
+```
+
 * Which method should we call for creating an index?
 
 ```
@@ -413,10 +419,16 @@ createIndex
 getIndexes
 ```
 
-* Which method should we all to drop or remove an index?
+* Which method should we call to drop or remove an index?
 
 ```
 dropIndex
+```
+
+* Which method should we call to rebuild index an index?
+
+```
+reIndex
 ```
 
 * What's the value if we want to create a binary tree index?
@@ -437,3 +449,154 @@ hashed
 all the documents
 ```
 
+* For read-heavy applications, deploy sharding and add one or more shards to a sharded cluster to distribute load among mongod instances.
+
+```
+False
+```
+
+* For read-heavy applications, increase the size of your replica set and distribute read operations to secondary members.
+
+```
+True
+```
+
+* What's the output of the following code?
+
+```
+db.posts.find( { likes : { $gt : 200 }, likes : { $lt : 400 } } );
+```
+
+Answer:
+
+```
+Posts documents with like field less than 400.
+```
+
+* What is the output of the following query:
+
+```
+db.posts.aggregate( [ { $group: { _id: “$author”, x: { $sum: $likes } } } ] )
+```
+
+Answer:
+
+```
+Sum of all likes on all posts by an author, grouped by author
+```
+
+* What is the opposite operation of `$unwind`?
+
+```
+$push
+```
+
+* Given the following posts document:
+
+```
+{
+    "_id" : 1,
+    "post_text" : "This post does not matter",
+    "tags": [ "tutorial", "fun", "learning"],
+    // rest of the document
+}
+```
+
+What will be the output of following query: 
+
+```
+db.posts.aggregate([{$unwind: "$tags"}])
+```
+
+Answer:
+
+```
+Return three separate documents for three separate tags
+```
+
+* Consider the following collection:
+
+```
+{
+_id: 1,
+product: “345678”,
+variations: [
+{ size: “L”, price: 1000 },
+{ size: “M”, price: 800 }
+]
+}
+```
+
+What will the below query return?
+
+```
+db.products.find( { product: “345678” },
+{ variations: { $elemMatch: { size: "L" } } } )
+```
+
+Answer:
+
+```
+Returns document but with only one element in the variations array
+```
+
+* Which method will return information on the query plan for aggregate function?
+
+```
+explain
+```
+
+* How can we get the number of executions for a query?
+
+```
+.explain("executionStats")
+```
+
+* Which of the following command inside aggregate command is used in MongoDB aggregation to filter the documents to pass only the documents that match the specified conditions to the next pipeline stage.
+
+```
+$match
+```
+
+* What does the following aggregate query perform?
+
+```
+db.posts.aggregate( [
+    { $match : { likes : { $gt : 100, $lte : 200 } } },
+    { $group: { _id: null, count: { $sum: 1 } } }
+] );
+```
+
+```
+Calculates the number of posts with likes between 100 and 200
+```
+
+* Which of the following aggregation option is used to specify the specific fields that needs to be passed to the next stage of the aggregation pipeline?
+
+```
+$project
+```
+
+* Which operator should we use when joining two collections?
+
+```
+$lookup
+```
+
+* What's the join type for `$lookup`?
+
+```
+left-outer join
+```
+
+* How to assign a collection to join?
+
+```
+from
+```
+
+* How to select the matching field for joining two collections?
+
+```
+assigning localField and foreignField, this means to match localField = foreignField
+```
