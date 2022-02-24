@@ -285,3 +285,155 @@ True
 ```
 $, $slice, $elemMatch
 ```
+
+* What are the two ways of data distribution?
+
+```
+sharding, replication
+```
+
+* What is sharding?
+
+```
+Distributing data into different servers, and each of them does its own reads and writes.
+```
+
+* What is the benefit of sharding?
+
+```
+improve reads and writes
+```
+
+* What is the downside of sharding?
+
+```
+low resilience
+```
+
+* What is `mongod`?
+
+```
+They are the primary database process that runs on an individual server.
+```
+
+* What is `mongos`?
+
+```
+They are routing process to manage storing different data on different servers and query against the right server.
+```
+
+* What are the two types of replication?
+
+```
+primary-secondary replication, peer-to-peer replication
+```
+
+* What is primary-secondary replication?
+
+```
+Synchronize secondaries with primary, which means the scondaries only contains copied data from a master.The primary is responsible for processing updates and act as an authoritative source for the data.
+```
+
+* What are the benefits of replications?
+
+```
+It provides good scalability with intensive read with read resilience.
+```
+
+* What are the drawbacks of replications?
+
+```
+It is poor with intensive writes and its inconsistency.
+```
+
+* What is the benefits of combining sharding and replications?
+
+```
+- scability
+- fault tolerance
+```
+
+* What is CAP theorem?
+
+```
+You can only et two from consistency, avaliability, or partition tolerance.
+```
+
+* ACID addresses an individual node's data consistency.
+
+```
+True
+```
+
+* CAP addresses cluster-wide data consistency.
+
+```
+True
+```
+
+* What's the meaning of consistency?
+
+```
+all nodes have the most recent data
+```
+
+* What's the meaning of availability?
+
+```
+every request receive by a non-failing node must return a response
+```
+
+* What's the meaning of partition tolerance?
+
+```
+clusters can survive from communication breakages in the cluster
+```
+
+* If we must have partition tolerance, what must we have for a online shopping database?
+
+```
+availability
+```
+
+* If we must have partition tolerance, what must we have for a stock database?
+
+```
+consistency
+```
+
+* Which method should we call for creating an index?
+
+```
+createIndex
+```
+
+* Which method should we call for listing the current indexes?
+
+```
+getIndexes
+```
+
+* Which method should we all to drop or remove an index?
+
+```
+dropIndex
+```
+
+* What's the value if we want to create a binary tree index?
+
+```
+1 or -1
+```
+
+* What's the value if we want to create a hashed index?
+
+```
+hashed
+```
+
+* How many documents should we examine if we have no index on finding?
+
+```
+all the documents
+```
+
